@@ -2,8 +2,7 @@ version: "3.7"
 
 services:
   backend:
-    #build: ./backend
-    image: dmk92/ip2_backend:1.0.0.0
+    build: ./backend
     expose:
       - 5000
     ports:
@@ -15,8 +14,7 @@ services:
       - yolo-network
 
   client:
-    #build: ./client
-    image: dmk92/ip2_client:latest
+    build: ./client
     expose:
       - 3000
     ports:
