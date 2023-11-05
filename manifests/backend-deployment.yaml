@@ -1,0 +1,110 @@
+
+Conversation opened. 2 messages. All messages read.
+
+Skip to content
+Using Gmail with screen readers
+in:sent 
+1 of 85
+Kubernetes Files
+Inbox
+
+Warui Wanjiru <waruigwanjiru@gmail.com>
+Attachments
+11:30 PM (7 minutes ago)
+to me
+
+Greetings,
+
+ 
+
+Find attached,
+
+ 
+
+Regards,
+
+Warui Gideon
+
+ 
+
+Sent from Mail for Windows
+
+ 
+
+10
+ Attachments
+  •  Scanned by Gmail
+
+Morris Murithi <mickmikemourinho@gmail.com>
+Attachments
+11:30 PM (6 minutes ago)
+to denmuri
+
+
+10
+ Attachments
+  •  Scanned by Gmail
+
+Morris Murithi
+Attachments
+11:32 PM (5 minutes ago)
+to denis.murimi
+
+
+
+
+10
+ Attachments
+  •  Scanned by Gmail
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    appName: yolobackend
+    serverClass: backend
+spec:
+  selector:
+    matchLabels:
+      app: backendapp
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backendapp
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: backend
+          image: mysteryalgorist/yolo-backend:1.0.0
+          ports:
+            - name: http
+              containerPort: 5000
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: server-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: server-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+backend-deployment.yaml
+Displaying client-deployment.yaml.
