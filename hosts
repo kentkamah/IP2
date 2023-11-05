@@ -1,0 +1,2 @@
+[web]
+webserver ansible_host=38.54.63.89 ansible_port=2222 ansible_user=vagrant
